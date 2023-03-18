@@ -1,0 +1,12 @@
+CREATE USER everton WITH PASSWORD 'admin';
+
+GRANT ALL PRIVILEGES ON DATABASE BANCO_LEGAL TO Everton;
+
+CREATE TABLE products(
+	id SERIAL PRIMARY KEY,
+	name varchar(50) not null,
+	description varchar(200),
+	code varchar(20),
+	dimensions varchar(40),
+	value real not null
+)
