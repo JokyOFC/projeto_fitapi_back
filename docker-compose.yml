@@ -1,0 +1,14 @@
+volumes:
+  data:
+
+services:
+  database:
+    image: 6a35e2c987a6
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - type: volume
+        source: data
+        target: /var/lib/postgresql/data
