@@ -4,3 +4,4 @@ requerimentos:
   asyncpg
   fastapi
   uvicorn
+  timeout_decorator
