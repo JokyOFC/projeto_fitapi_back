@@ -8,3 +8,7 @@ requerimentos:
   
   
   --postman app
+  
+  
+  
+  -- uvicorn main:create_product.app
