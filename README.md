@@ -5,3 +5,6 @@ requerimentos:
   fastapi
   uvicorn
   timeout_decorator
+  
+  
+  --postman app
