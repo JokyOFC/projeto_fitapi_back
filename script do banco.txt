@@ -6,7 +6,8 @@ CREATE TABLE products(
 	id SERIAL PRIMARY KEY,
 	name varchar(50) not null,
 	description varchar(200),
-	code varchar(20),
+	code varchar(25) not null,
+	empresa varchar(60) not null,
 	dimensions varchar(40),
 	value real not null
 )
