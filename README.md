@@ -16,4 +16,4 @@
 <h2>Como usar? Utilize o seguinte código:</h2>
 <h3>Entre na seguinte pasta:</h3>
 <p>\API</p>
-<code>uvicorn main:create_product.app</code>
+<code>uvicorn main:app</code>
