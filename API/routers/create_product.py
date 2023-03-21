@@ -24,8 +24,11 @@ async def create_product(product: Product):
                                      database='banco_legal', 
                                      host='localhost')
         
-        values = (product.name, product.description, product.code, product.dimensions, product.value)
-        await conn.execute("INSERT INTO products (name, description, code, dimensions, value) VALUES ($1, $2, $3, $4, $5)", *values)
+        values = (product.name, product.description,
+                  product.code, product.empresa,
+                  product.dimensions, product.value)
+        
+        await conn.execute("INSERT INTO products (name, description, code, empresa, dimensions, value) VALUES ($1, $2, $3, $4, $5, $6)", *values)
         return {"message": "Ok"}
     
     except asyncpg.exceptions.PostgresError as e:
