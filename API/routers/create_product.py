@@ -18,6 +18,7 @@ app = FastAPI()
 @timeout(10)
 @app.post("/create/product/")
 async def create_product(product: Product):
+    conn = None
     try:
         conn = await asyncpg.connect(user='everton',
                                      password='admin', 
