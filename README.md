@@ -1,4 +1,4 @@
-<h1>API__</h1>
+<h1>API para integrar produtos em uma base de dados do shopping</h1>
 
 <h2>requerimentos:</h2>
 <br>
