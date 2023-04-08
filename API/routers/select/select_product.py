@@ -23,7 +23,7 @@ async def read_product(product_id: int):
     conn = None
     try:
         conn = await get_database_connection()
-        query = "SELECT * FROM products WHERE id = $1"
+        query = "SELECT * FROM products WHERE empresa = $1"
         result = await conn.fetchrow(query, product_id)
         if result is None:
             raise HTTPException(status_code=404, detail="Product not found")
