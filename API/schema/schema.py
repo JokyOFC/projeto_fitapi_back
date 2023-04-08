@@ -8,8 +8,8 @@ from pydantic import BaseModel
 
 class Product(BaseModel):
     name: str
-    code: str
-    empresa: str
     description: str
+    code: str
+    empresa: str    
     dimensions: str
     value: float
