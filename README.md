@@ -17,3 +17,8 @@
 <h3>Entre na seguinte pasta:</h3>
 <p>\API</p>
 <code>uvicorn main:app</code>
+<br>
+<h2>\Coisas para se fazer:</h2>
+<p>\Casca da API - OK</p>
+<p>\Modelagem de banco</p>
+<p>\Rota Update</p>
