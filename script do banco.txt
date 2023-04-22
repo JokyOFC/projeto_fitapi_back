@@ -2,12 +2,66 @@ CREATE USER everton WITH PASSWORD 'admin';
 
 GRANT ALL PRIVILEGES ON DATABASE BANCO_LEGAL TO Everton;
 
-CREATE TABLE products(
-	id SERIAL PRIMARY KEY,
-	name varchar(50) not null,
-	description varchar(200),
-	code varchar(25) not null,
-	empresa varchar(60) not null,
-	dimensions varchar(40),
-	value real not null
-)
+CREATE TABLE IF NOT EXISTS categoria (
+  categoria_id SERIAL NOT NULL,
+  nome VARCHAR(120) not NULL,
+  PRIMARY KEY (categoria_id));
+
+CREATE TABLE IF NOT EXISTS produto (
+  produtos_id SERIAL NOT NULL,
+  preco real NOT NULL,
+  nome VARCHAR(120) NOT NULL,
+  descricao VARCHAR(255) NULL,
+  codigo VARCHAR(50) NOT NULL,
+  is_Published BOOLEAN NOT NULL,
+  categoria_categoria_fk INT NOT NULL,
+  empresa_empresa_fk INT NOT NULL,
+  PRIMARY KEY (produtos_id));
+
+CREATE TABLE IF NOT EXISTS users (
+  user_id SERIAL NOT NULL,
+  username VARCHAR(16) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(32) NOT NULL,
+  empresa_empresa_fk INT NOT NULL,
+  PRIMARY KEY (user_id));
+
+CREATE TABLE IF NOT EXISTS empresa (
+  empresa_id SERIAL NOT null,
+  cnpj VARCHAR(11) NOT NULL,
+  razao_social varchar(80) not null,
+	nome_fantasia varchar(20),
+  nome VARCHAR(120) NULL,
+  email VARCHAR(45) NOT NULL,
+  PRIMARY KEY (empresa_id));
+	
+	
+CREATE TABLE IF NOT EXISTS Logs (
+  log_id SERIAL NOT NULL,
+  data_hora TIMESTAMP NOT NULL,
+  users_user_fk INT NOT NULL,
+  descrição VARCHAR(200) NULL,
+  PRIMARY KEY (log_id)
+	);
+	
+alter table logs
+add constraint user_fk
+foreign key (users_user_fk)
+references users(user_id);
+	
+alter table users
+add constraint empresa_fk
+foreign key (empresa_empresa_fk)
+references empresa(empresa_id);
+
+alter table produto
+add constraint empresa_fk
+foreign key (empresa_empresa_fk)
+references empresa(empresa_id);
+
+alter table produto
+add constraint categoria_fk
+foreign key (categoria_categoria_fk)
+references categoria(categoria_id);
+
+	

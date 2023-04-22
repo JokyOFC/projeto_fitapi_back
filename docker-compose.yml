@@ -35,7 +35,11 @@ services:
     ports:
 
       - "8000:80"
+    
+    volumes:
+      - .docker/pgadmin:/var/lib/pgadmin
 
     depends_on:
 
       - database
+
