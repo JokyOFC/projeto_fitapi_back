@@ -64,4 +64,27 @@ add constraint categoria_fk
 foreign key (categoria_categoria_fk)
 references categoria(categoria_id);
 
+
+
+-- Adicionando ON DELETE CASCADE na tabela logs
+ALTER TABLE logs
+  DROP CONSTRAINT IF EXISTS user_fk, -- Remove a chave estrangeira existente, se existir
+  ADD CONSTRAINT user_fk FOREIGN KEY (users_user_fk) REFERENCES users(user_id) ON DELETE CASCADE;
+
+-- Adicionando ON DELETE CASCADE na tabela users
+ALTER TABLE users
+  DROP CONSTRAINT IF EXISTS empresa_fk, -- Remove a chave estrangeira existente, se existir
+  ADD CONSTRAINT empresa_fk FOREIGN KEY (empresa_empresa_fk) REFERENCES empresa(empresa_id) ON DELETE CASCADE;
+
+-- Adicionando ON DELETE CASCADE na tabela produto para a chave empresa_fk
+ALTER TABLE produto
+  DROP CONSTRAINT IF EXISTS empresa_fk, -- Remove a chave estrangeira existente, se existir
+  ADD CONSTRAINT empresa_fk FOREIGN KEY (empresa_empresa_fk) REFERENCES empresa(empresa_id) ON DELETE CASCADE;
+
+-- Adicionando ON DELETE CASCADE na tabela produto para a chave categoria_fk
+ALTER TABLE produto
+  DROP CONSTRAINT IF EXISTS categoria_fk, -- Remove a chave estrangeira existente, se existir
+  ADD CONSTRAINT categoria_fk FOREIGN KEY (categoria_categoria_fk) REFERENCES categoria(categoria_id) ON DELETE CASCADE;
+
+
 	
