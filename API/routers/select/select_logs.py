@@ -13,21 +13,21 @@ from connection.conexao import get_database_connection
 from asyncpg.exceptions import PostgresError
 from timeout_decorator import timeout, TimeoutError
 from fastapi import APIRouter, HTTPException
-from schema.schema import Product
+from schema.schema import logs
 
 router = APIRouter()
 
 @timeout(10)
-@router.get("/select/products/{product_id}")
-async def read_product(product_id: int):
+@router.get("/select/logs/{logs_id}")
+async def read_logs(logs_id: int):
     conn = None
     try:
         conn = await get_database_connection()
-        query = "SELECT * FROM products WHERE empresa = $1"
-        result = await conn.fetchrow(query, product_id)
+        query = "SELECT * FROM logs WHERE logs_id = $1"
+        result = await conn.fetchrow(query, logs_id)
         if result is None:
-            raise HTTPException(status_code=404, detail="Product not found")
-        return Product(**result)
+            raise HTTPException(status_code=404, detail="logs not found")
+        return logs(**result)
 
     except PostgresError as e:
         return {"message": f"Error {e}"}
