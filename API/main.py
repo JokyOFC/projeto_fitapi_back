@@ -8,13 +8,16 @@ from routers.insert import create_product
 from routers.insert import create_categoria 
 from routers.insert import create_empresa 
 from routers.delete import delete_product 
-from routers.select import select_product
-
+from routers.select import select_produto, select_empresa, select_categoria, select_logs, select_users
 from fastapi import FastAPI
 
 app = FastAPI(title='API Shopping')
 routers = [
-        select_product.router,
+        select_produto.router,
+        select_empresa.router,
+        select_categoria.router,
+        select_logs.router,
+        select_users.router,
         delete_product.router,
         create_product.router,
         create_categoria.router,

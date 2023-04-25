@@ -31,8 +31,6 @@ async def create_product(produto: Product):
                   produto.is_Published, produto.categoria_categoria_fk,
                   produto.empresa_empresa_fk)
 
-        
-
         ver_emp = "SELECT empresa_id FROM empresa WHERE empresa_id = $1"
 
         ver_cat = "SELECT categoria_id FROM categoria WHERE categoria_id = $1"

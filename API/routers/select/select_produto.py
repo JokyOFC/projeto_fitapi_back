@@ -18,15 +18,15 @@ from schema.schema import Product
 router = APIRouter()
 
 @timeout(10)
-@router.get("/select/products/{product_id}")
-async def read_product(product_id: int):
+@router.get("/select/produto/{produto_id}")
+async def read_produto(product_id: int):
     conn = None
     try:
         conn = await get_database_connection()
         query = "SELECT * FROM produto WHERE produtos_id = $1"
         result = await conn.fetchrow(query, product_id)
         if result is None:
-            raise HTTPException(status_code=404, detail="Product not found")
+            raise HTTPException(status_code=404, detail="produto not found")
         return Product(**result)
 
     except PostgresError as e:

@@ -28,7 +28,7 @@ async def create_product(categoria: categoria):
 
         values = (categoria.nome)
 
-        query = "INSERT INTO categoria (nome) VALUEs ($1)"
+        query = "INSERT INTO categoria (nome) VALUES ($1)"
         await conn.execute(query, values)
         return {"message": "Ok"}
 
