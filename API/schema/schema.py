@@ -34,3 +34,11 @@ class logs(BaseModel):
     data_hora: str
     users_user_fk: int
     descricao: str
+
+# class logs(BaseModel):
+#     data_hora: str,
+#     users_user_fk: int,
+#     descricao: str
+
+
+
