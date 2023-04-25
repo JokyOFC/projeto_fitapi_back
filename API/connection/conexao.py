@@ -8,8 +8,8 @@ import asyncpg
 
 
 async def get_database_connection():
-    conn = await asyncpg.connect(user='everton',
-                                 password='admin',
-                                 database='banco_legal',
-                                 host='localhost')
+    conn = await asyncpg.connect(user='ivcevgvt',
+                                 password='SXsn6iGF_s4ftrU2_ogFdPln3Ogpqgkd',
+                                 database='ivcevgvt',
+                                 host='motty.db.elephantsql.com')
     return conn
