@@ -18,7 +18,7 @@ from schema.schema import Product
 router = APIRouter()
 
 @timeout(10)
-@router.get("/select/produto/{produto_id}")
+@router.get("/select/produto/{product_id}")
 async def read_produto(product_id: int):
     conn = None
     try:

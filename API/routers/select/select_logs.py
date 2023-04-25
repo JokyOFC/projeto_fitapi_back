@@ -23,7 +23,7 @@ async def read_logs(logs_id: int):
     conn = None
     try:
         conn = await get_database_connection()
-        query = "SELECT * FROM logs WHERE logs_id = $1"
+        query = "SELECT * FROM logs WHERE log_id = $1"
         result = await conn.fetchrow(query, logs_id)
         if result is None:
             raise HTTPException(status_code=404, detail="logs not found")
