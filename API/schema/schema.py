@@ -28,16 +28,12 @@ class empresa(BaseModel):
     cnpj: str
     razao_social: str
     nome_fantasia: str
-<<<<<<< HEAD
     email: str    
-=======
-    email: str
 
 class logs(BaseModel):
     data_hora: str
     users_user_fk: int
     descricao: str
->>>>>>> 9f605cecdc5066a1abf38b810a8fcaaf38c8f9e8
 
 # class logs(BaseModel):
 #     data_hora: str,
